@@ -1,0 +1,189 @@
+ .icon {
+     width: 1em;
+     height: 1em;
+     vertical-align: -0.15em;
+     fill: currentColor;
+     overflow: hidden;
+ }
+ 
+ .fade-enter-active,
+ .fade-leave-active {
+     transition: opacity 0.3s ease;
+ }
+ 
+ .fade-enter {
+     opacity: 0.3;
+ }
+ 
+ .fade-leave {
+     opacity: 0.6;
+ }
+ 
+ .fade-leave-to {
+     opacity: 0;
+ }
+ 
+ .nav {
+     background-color: rgba(210, 31, 31, 0.66);
+     text-align: center;
+     box-shadow: 2px 2px 2px 1px rgba(153, 153, 153, 0.46);
+ }
+ 
+ .nav>h3 {
+     padding: 15px;
+     margin: 0 auto;
+     font-size: 24px;
+     color: rgb(242, 233, 233);
+ }
+ 
+ #main>h4 {
+     color: #666;
+     text-align: center;
+     font-size: 16px;
+     margin: 0 auto;
+     padding: 20px 0;
+ }
+ 
+ #task-form {
+     width: 100%;
+     display: inline-block;
+     position: relative;
+ }
+ 
+ .detail {
+     max-width: 500px;
+ }
+ 
+ .container {
+     max-width: 500px;
+     margin: 0 auto;
+ }
+ 
+ #task-form>input {
+     width: 100%;
+     padding: 6px 0;
+     border-width: 0;
+     background: rgba(181, 154, 154, 0.27);
+     text-indent: 5px;
+ }
+ 
+ #task-form>.more-list>input {
+     width: 100%;
+     padding: 6px 0;
+     border-width: 0;
+     background: rgba(181, 154, 154, 0.27);
+     text-indent: 5px;
+ }
+ 
+ #task-form>input:first-child {
+     text-indent: 14px;
+ }
+ 
+ .tasklist {
+     padding: 0px;
+ }
+ 
+ input:focus {
+     outline: solid 2px rgba(225, 107, 107, 0.91);
+ }
+ 
+ .icon-list {
+     position: absolute;
+     top: 0;
+     cursor: pointer;
+     line-height: 30px;
+ }
+ 
+ .add {
+     right: 32px;
+ }
+ 
+ .more {
+     right: 8px;
+ }
+ 
+ textarea:focus {
+     outline: none;
+ }
+ 
+ #task-form>.more-list>button {
+     border: none;
+     width: 94%;
+     padding: 10px;
+     font-size: 16px;
+     color: #fff;
+     background-color: #e16b6b;
+     border-radius: 4px;
+     margin: 10px auto;
+     display: block;
+ }
+ 
+ #task-form>.more-list>p {
+     margin: 0;
+     font-size: 16px;
+     text-indent: 14px;
+     padding: 4px 0 10px 0;
+     color: #111;
+ }
+ 
+ .wrap {
+     border: 1px solid #999;
+     margin-top: -1px;
+ }
+ 
+ textarea {
+     border-radius: 3px;
+     width: 100%;
+     border-width: 0;
+     padding: 6px 0;
+     text-indent: 15px;
+     background-color: rgb(235, 228, 228);
+ }
+ 
+ #alert_time {
+     display: none;
+ }
+ 
+ .complete {
+     position: relative;
+     padding: 14px;
+ }
+ 
+ .complete>span {
+     cursor: pointer
+ }
+ 
+ .complete:hover>.action {
+     opacity: 1;
+ }
+ 
+ .action {
+     position: absolute;
+     right: 14px;
+     top: 14px;
+     opacity: 0;
+ }
+ 
+ .completed {}
+ 
+ .container>p {
+     margin: 0;
+     font-size: 16px;
+     padding: 10px 0 5px 0;
+     color: #888;
+     /* position: relative; */
+ }
+ 
+ .completed>.tasklist>.complete>span {
+     color: #888;
+     font-size: 15px;
+     text-decoration-line: line-through;
+ }
+ 
+ .edit-icon {
+     right: 18px;
+ }
+ 
+ .delete-icon {
+     right: -6px
+ }

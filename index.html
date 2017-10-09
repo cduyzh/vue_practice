@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/normalize.css">
+    <script src="./js/icon.js"></script>
+    <link rel="stylesheet" href="./css/vue_p1.css">
+
+
+    <title>vue清单练习</title>
+</head>
+
+<body>
+    <header class="nav">
+        <h3>vue列表清单</h3>
+    </header>
+    <div id="main">
+        <h4>开黑了么就写作业?</h4>
+        <div class="container">
+            <div class="wrap">
+                <form @submit.prevent="merge" action="" id="task-form">
+                    <input placeholder="请开始搞事情..." v-model="current.title" autocomplete="off" type="text" value="" id="input-task">
+                    <i @click="merge" class="icon-list add">
+                        <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-iconjia"></use>
+                        </svg>
+                    </i>
+                    <i @click="showList" class="icon-list more">
+                       <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-icon4"></use>
+                        </svg>
+                    </i>
+                    <transition :duration="200" name="fade">
+                        <div v-if="moreList" class="more-list">
+                            <div class="detail">
+                                <textarea rows="8" placeholder="详情描述..." v-model="current.details" name="" id="task-detail"></textarea>
+                            </div>
+                            <p>定时提醒</p>
+                            <input v-model="current.alert_time" type="date" name="" id="">
+                            <button type="submit">提交</button>
+                        </div>
+                    </transition>
+
+
+                </form>
+            </div>
+            <div class="wrap">
+                <div class="tasklist">
+                    <task :todo="todo" v-if="!todo.complete" v-for="(todo,index) in list">
+                    </task>
+                </div>
+            </div>
+            <p>已完成
+
+            </p>
+            <div class="wrap completed">
+                <div class="tasklist">
+
+                    <task :todo="todo" v-if="todo.complete" v-for="(todo,index) in list">
+                    </task>
+                    <!-- <div v-if="todo.complete" v-for="(todo,index) in list" class="complete">
+                        <button @click="toggle_complete(todo.id)">未完成</button> {{todo.title}}
+                        <button @click="set_current(todo)">修改</button>
+                        <button @click="remove(todo.id)">删除</button>
+                    </div> -->
+                </div>
+            </div>
+
+
+        </div>
+
+
+    </div>
+    <template id="task-list-tp">
+        <div class="complete">
+            <!-- 图标及标题点击后翻转事件完成状态 -->
+            <span @click="action('toggle_complete',todo.id)">
+                <span v-if="!todo.complete"><svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-wancheng"></use>
+                </svg></span>
+                <span v-if="todo.complete"><svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-wancheng1"></use>
+                </svg></span>
+            </span>
+            <span  @click="action('toggle_complete',todo.id)">{{todo.title}}</span>
+            <!-- 渲染列表hover后acion操作 -->
+            <div class="action">
+                <span v-if="!todo.complete" class="icon-list edit-icon" @click="action('set_current',todo)">
+                    <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-bianji"></use>
+                </svg>
+                </span>
+                <span class="icon-list delete-icon" @click="action('remove',todo.id)">
+                     <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-shanchu"></use>
+                </svg>
+                </span>
+            </div>
+
+            <!-- 方法一：嵌套循环 -->
+            <!-- <div v-for="value of todo">
+                            {{value}}
+                        </div> -->
+            <!-- 方法二 -->
+            <!-- <div>
+                            key:{{Object.getOwnPropertyNames(todo)[0]}}
+                        </div> -->
+            <!-- <div>
+                            value:{{todo[Object.getOwnPropertyNames(todo)[0]]}}
+                        </div> -->
+        </div>
+    </template>
+    <audio id="alert_time" controls>
+        <source src="./src/mp3/alert_time.mp3">
+    </audio>
+    <script src="./js/vue.js"></script>
+    <script src="./js/myStory.js"></script>
+    <script src="./js/vue-list.js"></script>
+</body>
+
+</html>
