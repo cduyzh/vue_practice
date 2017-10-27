@@ -97,6 +97,7 @@
             },
             set_current: function(todo) {
                 this.current = copy(todo);
+                me.moreList = !me.moreList;
                 document.getElementById("input-task").focus();
             },
             reset_current: function() {

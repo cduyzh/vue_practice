@@ -25,16 +25,16 @@
                     <input placeholder="请开始搞事情..." v-model="current.title" autocomplete="off" type="text" value="" id="input-task">
                     <i @click="merge" class="icon-list add">
                         <svg class="icon" aria-hidden="true">
-                        <use xlink:href="#icon-iconjia"></use>
+                            <use xlink:href="#icon-iconjia"></use>
                         </svg>
                     </i>
                     <i @click="showList" class="icon-list more">
-                       <svg class="icon" aria-hidden="true">
-                        <use xlink:href="#icon-icon4"></use>
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-icon4"></use>
                         </svg>
                     </i>
                     <transition :duration="200" name="fade">
-                        <div v-if="moreList" class="more-list">
+                        <div v-if="moreList||current.id" class="more-list">
                             <div class="detail">
                                 <textarea rows="8" placeholder="详情描述..." v-model="current.details" name="" id="task-detail"></textarea>
                             </div>
@@ -78,25 +78,29 @@
         <div class="complete">
             <!-- 图标及标题点击后翻转事件完成状态 -->
             <span @click="action('toggle_complete',todo.id)">
-                <span v-if="!todo.complete"><svg class="icon" aria-hidden="true">
-                <use xlink:href="#icon-wancheng"></use>
-                </svg></span>
-                <span v-if="todo.complete"><svg class="icon" aria-hidden="true">
-                <use xlink:href="#icon-wancheng1"></use>
-                </svg></span>
+                <span v-if="!todo.complete">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-wancheng"></use>
+                    </svg>
+                </span>
+                <span v-if="todo.complete">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-wancheng1"></use>
+                    </svg>
+                </span>
             </span>
-            <span  @click="action('toggle_complete',todo.id)">{{todo.title}}</span>
+            <span @click="action('toggle_complete',todo.id)">{{todo.title}}</span>
             <!-- 渲染列表hover后acion操作 -->
             <div class="action">
                 <span v-if="!todo.complete" class="icon-list edit-icon" @click="action('set_current',todo)">
                     <svg class="icon" aria-hidden="true">
-                <use xlink:href="#icon-bianji"></use>
-                </svg>
+                        <use xlink:href="#icon-bianji"></use>
+                    </svg>
                 </span>
                 <span class="icon-list delete-icon" @click="action('remove',todo.id)">
-                     <svg class="icon" aria-hidden="true">
-                <use xlink:href="#icon-shanchu"></use>
-                </svg>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-shanchu"></use>
+                    </svg>
                 </span>
             </div>
 
